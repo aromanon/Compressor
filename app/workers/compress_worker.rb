@@ -8,9 +8,9 @@ class CompressWorker
 
     begin
       WebP.encode(path, webp_path, { quality: 80, method: 5 })
-      UserMailer.with(uuid: jid, email: email).success_compress.deliver_later
+      UserMailer.with(uuid: jid, email: email).success_compress.deliver_now
     rescue
-      UserMailer.with(email: email).error_compress.deliver_later
+      UserMailer.with(email: email).error_compress.deliver_now
     end
   end
 end

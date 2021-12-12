@@ -1,15 +1,14 @@
 FROM ruby:2.7.4
 
-RUN apt-get update -qq && apt-get install -y nodejs
+RUN apt-get update && apt-get install -y bash build-essential nodejs
 
-WORKDIR /app
+RUN mkdir /project
+WORKDIR /project
 
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
-RUN bundle install
+COPY Gemfile Gemfile.lock ./
+RUN gem install bundler --no-document
+RUN bundle install --no-binstubs --jobs $(nproc) --retry 3
 
-COPY . /app/
+COPY . .
 
-ENTRYPOINT ["bin/rails"]
-CMD ["s", "-b", "0.0.0.0"]
-EXPOSE 3000
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

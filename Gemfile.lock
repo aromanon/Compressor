@@ -135,14 +135,10 @@ GEM
       nokogiri (~> 1)
       rake
     mini_mime (1.1.2)
-    mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
-      racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-darwin)
+    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     public_suffix (4.0.6)
     puma (3.12.6)
@@ -241,15 +237,15 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  ruby
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-sass
   byebug
   capybara (>= 2.15)
-  carrierwave-webp (~> 0.1.0)
+  carrierwave-webp
   chromedriver-helper
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
@@ -261,7 +257,7 @@ DEPENDENCIES
   rails (~> 5.2.6)
   sass-rails (~> 5.0)
   selenium-webdriver
-  sidekiq (~> 6.3, >= 6.3.1)
+  sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
@@ -274,4 +270,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.2.32
+   2.2.33
